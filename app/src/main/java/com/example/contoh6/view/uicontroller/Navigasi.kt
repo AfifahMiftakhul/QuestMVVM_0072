@@ -35,3 +35,34 @@ fun SiswaApp(
             startDestination = Navigasi.Formulir.name,
             modifier = modifier.padding(isiRuang)
         ) {
+
+            composable(route = Navigasi.Formulir.name) {
+
+                val konteks = LocalContext.current
+
+                FormSiswa(
+                    pilihanJK = DataJK.JenisK.map { id ->
+                        konteks.resources.getString(id)
+                    },
+                    onSubmitButtonClicked = { data ->
+                        viewModel.setSiswa(data)
+
+                        navController.navigate(
+                            Navigasi.Detail.name
+                        )
+                    }
+                )
+            }
+
+            composable(route = Navigasi.Detail.name) {
+
+                TampilSiswa(
+                    statusUiSiswa = uiState.value,
+                    onBackButtonClicked = {
+                        cancelAndBackToFormulir(navController)
+                    }
+                )
+            }
+        }
+    }
+}
