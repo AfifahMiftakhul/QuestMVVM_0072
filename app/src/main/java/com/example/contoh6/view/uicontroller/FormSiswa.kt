@@ -24,4 +24,6 @@ fun FormSiswa(
     var txtNama by rememberSaveable {
         mutableStateOf("")
     }
-
+    var txtAlamat by rememberSaveable {
+        mutableStateOf("")
+    }
