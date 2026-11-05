@@ -106,3 +106,23 @@ fun FormSiswa(
                     }
                 }
             }
+
+            HorizontalDivider(
+                modifier = Modifier
+                    .padding(5.dp)
+                    .width(250.dp),
+                thickness = 1.dp,
+                color = Color.Blue
+            )
+
+            OutlinedTextField(
+                value = txtAlamat,
+                onValueChange = {
+                    txtAlamat = it
+                },
+                singleLine = true,
+                modifier = Modifier.width(250.dp),
+                label = {
+                    Text(stringResource(R.string.alamat))
+                }
+            )
