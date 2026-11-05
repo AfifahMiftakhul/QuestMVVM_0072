@@ -47,3 +47,13 @@ fun FormSiswa(
                 )
             )
         }
+    ) { isiRuang ->
+
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(isiRuang)
+                .padding(16.dp),
+            verticalArrangement = Arrangement.SpaceBetween,
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
