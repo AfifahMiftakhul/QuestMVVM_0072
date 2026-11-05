@@ -13,3 +13,25 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.contoh6.model.DataJK
 import com.example.contoh6.viewmodel.SiswaViewModel
+
+
+enum class Navigasi {
+    Formulir,
+    Detail
+}
+
+@Composable
+fun SiswaApp(
+    modifier: Modifier = Modifier,
+    viewModel: SiswaViewModel = viewModel(),
+    navController: NavHostController = rememberNavController()
+) {
+    val uiState = viewModel.statusUI.collectAsState()
+
+    Scaffold { isiRuang ->
+
+        NavHost(
+            navController = navController,
+            startDestination = Navigasi.Formulir.name,
+            modifier = modifier.padding(isiRuang)
+        ) {
